@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "kevin-ladder-out",
     "public": ".",
     "ignore": [
       "firebase.json",

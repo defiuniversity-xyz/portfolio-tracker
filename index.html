@@ -307,6 +307,256 @@
             background: white;
             border-radius: 10px;
         }
+
+        /* Strategy Dashboard Styles */
+        .strategy-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+            z-index: 9999;
+            overflow-y: auto;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .strategy-modal.active {
+            display: block;
+        }
+
+        .strategy-content {
+            max-width: 1400px;
+            margin: 40px auto;
+            padding: 20px;
+            position: relative;
+        }
+
+        .strategy-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px 15px 0 0;
+            position: relative;
+        }
+
+        .strategy-header h2 {
+            margin: 0 0 15px 0;
+            font-size: 2em;
+        }
+
+        .strategy-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            font-size: 28px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .strategy-close:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(90deg);
+        }
+
+        .strategy-body {
+            background: white;
+            padding: 30px;
+            border-radius: 0 0 15px 15px;
+        }
+
+        .strategy-metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .metric-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .metric-label {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 8px;
+        }
+
+        .metric-value {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #2a5298;
+        }
+
+        .strategy-section {
+            margin: 30px 0;
+        }
+
+        .section-title {
+            font-size: 1.4em;
+            color: #2a5298;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        .charts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+
+        .chart-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .chart-card h3 {
+            margin: 0 0 15px 0;
+            color: #2a5298;
+            font-size: 1.1em;
+        }
+
+        .priority-list {
+            display: grid;
+            gap: 15px;
+        }
+
+        .priority-item {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #667eea;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .priority-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+        }
+
+        .priority-item.high {
+            border-left-color: #f44336;
+            background: #ffebee;
+        }
+
+        .priority-item.medium {
+            border-left-color: #ff9800;
+            background: #fff3e0;
+        }
+
+        .priority-info {
+            flex: 1;
+        }
+
+        .priority-asset {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #2a5298;
+            margin-bottom: 5px;
+        }
+
+        .priority-details {
+            font-size: 0.9em;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .priority-action {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .priority-action:hover {
+            background: #5568d3;
+            transform: scale(1.05);
+        }
+
+        .recommendations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .recommendation-card {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #4caf50;
+        }
+
+        .recommendation-card.warning {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            border-left-color: #ff9800;
+        }
+
+        .recommendation-card.danger {
+            background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
+            border-left-color: #f44336;
+        }
+
+        .recommendation-title {
+            font-size: 1.1em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .recommendation-text {
+            font-size: 0.95em;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .charts-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .strategy-content {
+                margin: 20px 10px;
+                padding: 10px;
+            }
+
+            .strategy-metrics {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
@@ -388,12 +638,24 @@
             <div class="card-title">Custom Ladder Calculator</div>
             <div class="ladder-section">
                 <div class="ladder-controls">
-                    <select id="ladderAsset" class="location-select" style="width: 200px;">
-                        <option value="">Choose asset...</option>
-                    </select>
-                    <input type="number" id="firstMultiple" class="ladder-input" placeholder="First (1.5x)" value="1.5" step="0.1">
-                    <input type="number" id="maxMultiple" class="ladder-input" placeholder="Max (5x)" value="5" step="0.5">
-                    <button class="btn" onclick="calculateCustomLadder()">Calculate</button>
+                    <div style="display: flex; flex-direction: column; gap: 5px;">
+                        <label for="ladderAsset" style="font-size: 0.85em; font-weight: 600; color: #666;">Select Asset:</label>
+                        <select id="ladderAsset" class="location-select" style="width: 200px;">
+                            <option value="">Choose asset...</option>
+                        </select>
+                    </div>
+                    <div style="display: flex; flex-direction: column; gap: 5px;">
+                        <label for="firstMultiple" style="font-size: 0.85em; font-weight: 600; color: #666;">First Multiple (e.g., 1.5x):</label>
+                        <input type="number" id="firstMultiple" class="ladder-input" placeholder="1.5" value="1.5" step="0.1">
+                    </div>
+                    <div style="display: flex; flex-direction: column; gap: 5px;">
+                        <label for="maxMultiple" style="font-size: 0.85em; font-weight: 600; color: #666;">Max Multiple (e.g., 5x):</label>
+                        <input type="number" id="maxMultiple" class="ladder-input" placeholder="5" value="5" step="0.5">
+                    </div>
+                    <div style="display: flex; flex-direction: column; gap: 5px;">
+                        <label style="font-size: 0.85em; font-weight: 600; color: transparent;">Action</label>
+                        <button class="btn" onclick="calculateCustomLadder()">Calculate</button>
+                    </div>
                 </div>
                 <div id="ladderSteps"></div>
             </div>
@@ -405,8 +667,47 @@
             <div id="riskAnalysis"></div>
         </div>
         
-        <!-- Hidden div for strategy generation -->
-        <div id="strategyOutput" style="display: none;"></div>
+        <!-- Strategy Dashboard Modal -->
+        <div id="strategyModal" class="strategy-modal">
+            <div class="strategy-content">
+                <div class="strategy-header">
+                    <h2>🎯 Ladder Exit Strategy Dashboard</h2>
+                    <p style="margin: 0; opacity: 0.9;">Prioritized action plan for your portfolio</p>
+                    <button class="strategy-close" onclick="closeDashboard()">&times;</button>
+                </div>
+                <div class="strategy-body">
+                    <!-- Metrics Summary -->
+                    <div class="strategy-metrics" id="strategyMetrics"></div>
+
+                    <!-- Charts Section -->
+                    <div class="strategy-section">
+                        <h3 class="section-title">📊 Portfolio Visualization</h3>
+                        <div class="charts-grid">
+                            <div class="chart-card">
+                                <h3>Position Composition</h3>
+                                <canvas id="compositionChart"></canvas>
+                            </div>
+                            <div class="chart-card">
+                                <h3>Priority Rankings</h3>
+                                <canvas id="priorityChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Priority Assets -->
+                    <div class="strategy-section">
+                        <h3 class="section-title">🎯 Priority Assets for Ladder Strategy</h3>
+                        <div class="priority-list" id="priorityList"></div>
+                    </div>
+
+                    <!-- Recommendations -->
+                    <div class="strategy-section">
+                        <h3 class="section-title">💡 Strategy Recommendations</h3>
+                        <div class="recommendations-grid" id="recommendationsList"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     
     <script>
@@ -540,8 +841,48 @@
             } else {
                 portfolio[index][field] = value;
             }
-            renderPortfolio();
-            // Force immediate recalculation
+
+            // Calculate total net value for percentage calculations
+            let totalNet = 0;
+            portfolio.forEach(item => {
+                const assetValue = item.quantity * item.price;
+                const netValue = assetValue - (item.debt || 0);
+                totalNet += netValue;
+            });
+
+            // Get all rows
+            const rows = document.querySelectorAll('#portfolioBody tr');
+
+            // Update calculated values for ALL rows (since percentages change for all)
+            portfolio.forEach((item, idx) => {
+                const assetValue = item.quantity * item.price;
+                const netValue = assetValue - (item.debt || 0);
+                const percentage = totalNet > 0 ? ((netValue / totalNet) * 100).toFixed(1) : '0';
+
+                if (rows[idx]) {
+                    const row = rows[idx];
+
+                    // Update Asset Value cell
+                    const assetValueCell = row.querySelector('.calculated-value');
+                    if (assetValueCell) {
+                        assetValueCell.textContent = assetValue.toLocaleString(undefined, {maximumFractionDigits: 0});
+                    }
+
+                    // Update Net Value cell
+                    const netValueCell = row.querySelector('.net-value-cell');
+                    if (netValueCell) {
+                        netValueCell.textContent = netValue.toLocaleString(undefined, {maximumFractionDigits: 0});
+                    }
+
+                    // Update Percentage cell
+                    const percentageCell = row.querySelector('.percentage');
+                    if (percentageCell) {
+                        percentageCell.textContent = percentage + '%';
+                    }
+                }
+            });
+
+            // Update summary stats without re-rendering the table
             updateSummary();
         }
         
@@ -685,13 +1026,15 @@
         function analyzeRisk(netTotal, totalDebt, totalValue) {
             const analysisDiv = document.getElementById('riskAnalysis');
             let html = '<div class="summary-grid">';
-            
+            let hasRiskItems = false;
+
             // Leverage warning
             if (totalDebt > 0) {
+                hasRiskItems = true;
                 const leverageRatio = totalValue / netTotal;
                 let riskLevel = 'Low';
                 let color = '#4caf50';
-                
+
                 if (leverageRatio > 2) {
                     riskLevel = 'High';
                     color = '#f44336';
@@ -699,7 +1042,7 @@
                     riskLevel = 'Medium';
                     color = '#ff9800';
                 }
-                
+
                 html += `
                     <div class="summary-item" style="border-left-color: ${color};">
                         <div class="summary-label">⚠️ Leverage Risk: ${riskLevel}</div>
@@ -713,14 +1056,15 @@
                     </div>
                 `;
             }
-            
+
             // Concentration risk
             const concentrationRisk = portfolio.filter(item => {
                 const netValue = (item.quantity * item.price) - (item.debt || 0);
                 return (netValue / netTotal) > 0.25;
             });
-            
+
             if (concentrationRisk.length > 0) {
+                hasRiskItems = true;
                 html += `
                     <div class="summary-item" style="border-left-color: #ff9800;">
                         <div class="summary-label">📊 Concentration Risk</div>
@@ -739,13 +1083,14 @@
                     </div>
                 `;
             }
-            
+
             // Lending position analysis
-            const lendingPositions = portfolio.filter(item => 
+            const lendingPositions = portfolio.filter(item =>
                 item.type && item.type.toLowerCase().includes('lend') && item.debt > 0
             );
-            
+
             if (lendingPositions.length > 0) {
+                hasRiskItems = true;
                 html += `
                     <div class="summary-item" style="border-left-color: #2196f3;">
                         <div class="summary-label">🏦 Lending Positions</div>
@@ -763,7 +1108,26 @@
                     </div>
                 `;
             }
-            
+
+            // Show message if no risks detected
+            if (!hasRiskItems) {
+                html += `
+                    <div class="summary-item" style="border-left-color: #4caf50;">
+                        <div class="summary-label">✅ Portfolio Health Status</div>
+                        <div style="margin-top: 10px;">
+                            <div style="color: #4caf50; font-weight: 600;">No significant risks detected</div>
+                            <div style="margin-top: 10px; font-size: 0.9em; line-height: 1.6;">
+                                <strong>What we're monitoring:</strong><br>
+                                • Leverage Risk: No debt detected<br>
+                                • Concentration Risk: No positions exceed 25%<br>
+                                • Lending Positions: No active loans<br><br>
+                                <em>Add debt amounts to assets to track leverage and lending positions.</em>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+
             html += '</div>';
             analysisDiv.innerHTML = html;
         }
@@ -798,35 +1162,323 @@
             showNotification('📥 CSV exported successfully!', 'success');
         }
         
-        // Generate ladder strategy
-        window.generateLadderStrategy = function() {
-            // Create summary for strategy generation
-            const summary = portfolio.map(item => ({
-                asset: item.asset,
-                netValue: (item.quantity * item.price) - (item.debt || 0),
-                hasDebt: item.debt > 0
-            })).filter(item => item.netValue > 1000); // Only include significant positions
-            
-            alert(`
-🎯 LADDER STRATEGY GENERATED!
+        // Chart instances
+        let compositionChartInstance = null;
+        let priorityChartInstance = null;
 
-Based on your updated portfolio:
+        // Calculate priority scores for assets
+        function calculateAssetPriority(item, netTotal) {
+            const netValue = (item.quantity * item.price) - (item.debt || 0);
+            const concentrationPercent = (netValue / netTotal) * 100;
 
-TOP POSITIONS TO LADDER:
-${summary.slice(0, 5).map(item => 
-    `• ${item.asset}: ${item.netValue.toLocaleString()} ${item.hasDebt ? '(has debt)' : ''}`
-).join('\n')}
+            let priorityScore = 0;
+            let priorityLevel = 'normal';
+            let reasons = [];
 
-STRATEGY RECOMMENDATIONS:
-1. Focus on assets with debt first (need to deleverage)
-2. Take profits more aggressively on concentrated positions
-3. Keep 15-20% of each asset as moon bags
+            // High priority: Has debt (needs deleveraging)
+            if (item.debt > 0) {
+                priorityScore += 100;
+                priorityLevel = 'high';
+                reasons.push(`Has $${item.debt.toLocaleString()} debt`);
+            }
 
-Use the Custom Ladder Calculator above to create specific exit plans for each asset!
-            `);
-            
-            showNotification('🎯 Strategy recommendations generated!', 'success');
+            // Medium priority: Concentrated position
+            if (concentrationPercent > 25) {
+                priorityScore += 50;
+                if (priorityLevel === 'normal') priorityLevel = 'medium';
+                reasons.push(`${concentrationPercent.toFixed(1)}% of portfolio (concentrated)`);
+            }
+
+            // Add value-based score
+            priorityScore += Math.min(netValue / 10000, 50); // Cap at 50 points
+
+            return {
+                ...item,
+                netValue,
+                concentrationPercent,
+                priorityScore,
+                priorityLevel,
+                reasons
+            };
         }
+
+        // Build dashboard data
+        function buildDashboardData() {
+            // Calculate totals
+            const totalValue = portfolio.reduce((sum, item) => sum + (item.quantity * item.price), 0);
+            const totalDebt = portfolio.reduce((sum, item) => sum + (item.debt || 0), 0);
+            const netTotal = totalValue - totalDebt;
+
+            // Filter and prioritize assets
+            const significantAssets = portfolio
+                .filter(item => {
+                    const netValue = (item.quantity * item.price) - (item.debt || 0);
+                    return netValue > 1000 && item.asset !== 'CASH';
+                })
+                .map(item => calculateAssetPriority(item, netTotal))
+                .sort((a, b) => b.priorityScore - a.priorityScore);
+
+            // Calculate metrics
+            const assetsWithDebt = significantAssets.filter(a => a.debt > 0).length;
+            const concentratedPositions = significantAssets.filter(a => a.concentrationPercent > 25).length;
+            const totalLadderValue = significantAssets.reduce((sum, a) => sum + a.netValue, 0);
+
+            return {
+                totalValue,
+                totalDebt,
+                netTotal,
+                significantAssets,
+                assetsWithDebt,
+                concentratedPositions,
+                totalLadderValue,
+                topAssets: significantAssets.slice(0, 5)
+            };
+        }
+
+        // Render metrics section
+        function renderMetrics(data) {
+            const metricsDiv = document.getElementById('strategyMetrics');
+            metricsDiv.innerHTML = `
+                <div class="metric-card">
+                    <div class="metric-label">Total Ladder Value</div>
+                    <div class="metric-value">$${data.totalLadderValue.toLocaleString(undefined, {maximumFractionDigits: 0})}</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Priority Assets</div>
+                    <div class="metric-value">${data.significantAssets.length}</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Assets with Debt</div>
+                    <div class="metric-value" style="color: ${data.assetsWithDebt > 0 ? '#f44336' : '#4caf50'}">
+                        ${data.assetsWithDebt}
+                    </div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Concentrated Positions</div>
+                    <div class="metric-value" style="color: ${data.concentratedPositions > 0 ? '#ff9800' : '#4caf50'}">
+                        ${data.concentratedPositions}
+                    </div>
+                </div>
+            `;
+        }
+
+        // Render charts
+        function renderCharts(data) {
+            // Destroy existing charts
+            if (compositionChartInstance) compositionChartInstance.destroy();
+            if (priorityChartInstance) priorityChartInstance.destroy();
+
+            // Composition Chart (Doughnut)
+            const compositionCtx = document.getElementById('compositionChart').getContext('2d');
+            compositionChartInstance = new Chart(compositionCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: data.topAssets.map(a => a.asset),
+                    datasets: [{
+                        data: data.topAssets.map(a => a.netValue),
+                        backgroundColor: [
+                            '#667eea', '#764ba2', '#f093fb', '#4facfe', '#43e97b'
+                        ],
+                        borderWidth: 2,
+                        borderColor: '#fff'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    plugins: {
+                        legend: {
+                            position: 'bottom'
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const label = context.label || '';
+                                    const value = context.parsed || 0;
+                                    const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                                    const percentage = ((value / total) * 100).toFixed(1);
+                                    return `${label}: $${value.toLocaleString()} (${percentage}%)`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Priority Chart (Bar)
+            const priorityCtx = document.getElementById('priorityChart').getContext('2d');
+            const priorityColors = data.topAssets.map(a => {
+                if (a.priorityLevel === 'high') return '#f44336';
+                if (a.priorityLevel === 'medium') return '#ff9800';
+                return '#667eea';
+            });
+
+            priorityChartInstance = new Chart(priorityCtx, {
+                type: 'bar',
+                data: {
+                    labels: data.topAssets.map(a => a.asset),
+                    datasets: [{
+                        label: 'Net Value',
+                        data: data.topAssets.map(a => a.netValue),
+                        backgroundColor: priorityColors,
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    indexAxis: 'y',
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return `Net Value: $${context.parsed.x.toLocaleString()}`;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            ticks: {
+                                callback: function(value) {
+                                    return '$' + value.toLocaleString();
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Render priority list
+        function renderPriorityList(data) {
+            const listDiv = document.getElementById('priorityList');
+            if (data.significantAssets.length === 0) {
+                listDiv.innerHTML = '<p style="text-align: center; color: #666;">No significant positions found for ladder strategy.</p>';
+                return;
+            }
+
+            listDiv.innerHTML = data.significantAssets.map((asset, index) => `
+                <div class="priority-item ${asset.priorityLevel}" data-index="${index}">
+                    <div class="priority-info">
+                        <div class="priority-asset">${asset.asset}</div>
+                        <div class="priority-details">
+                            Net Value: $${asset.netValue.toLocaleString(undefined, {maximumFractionDigits: 0})}
+                            (${asset.concentrationPercent.toFixed(1)}% of portfolio)
+                            ${asset.reasons.length > 0 ? '<br>⚠️ ' + asset.reasons.join(', ') : ''}
+                        </div>
+                    </div>
+                    <button class="priority-action" onclick="calculateLadderFromDashboard('${asset.asset}')">
+                        Calculate Ladder
+                    </button>
+                </div>
+            `).join('');
+        }
+
+        // Render recommendations
+        function renderRecommendations(data) {
+            const recDiv = document.getElementById('recommendationsList');
+            const recommendations = [];
+
+            // Debt recommendations
+            if (data.assetsWithDebt > 0) {
+                recommendations.push({
+                    type: 'danger',
+                    title: '🚨 Deleverage Priority',
+                    text: `You have ${data.assetsWithDebt} asset(s) with outstanding debt totaling $${data.totalDebt.toLocaleString()}. Focus on ladder strategies for these assets first to reduce leverage risk, especially during market volatility.`
+                });
+            }
+
+            // Concentration recommendations
+            if (data.concentratedPositions > 0) {
+                recommendations.push({
+                    type: 'warning',
+                    title: '⚖️ Rebalancing Recommended',
+                    text: `${data.concentratedPositions} position(s) exceed 25% of your portfolio. Consider creating aggressive ladder strategies for concentrated positions to reduce risk and lock in profits.`
+                });
+            }
+
+            // General strategy
+            recommendations.push({
+                type: 'success',
+                title: '🎯 Ladder Strategy Tips',
+                text: 'Start selling at 1.5x-2x current prices for initial positions. Reserve 15-20% as "moon bags" for long-term holds. Use the Custom Ladder Calculator to create specific exit plans for each asset.'
+            });
+
+            // Moon bag recommendation
+            recommendations.push({
+                type: 'success',
+                title: '🌙 Moon Bag Strategy',
+                text: 'Keep 15-20% of each position as a moon bag for potential 10x+ gains. This allows you to lock in profits while maintaining upside exposure if assets continue rallying.'
+            });
+
+            // Market timing
+            if (data.totalDebt === 0) {
+                recommendations.push({
+                    type: 'success',
+                    title: '✅ Strong Position',
+                    text: 'No leverage detected - you\'re in a strong position! You can afford to be more patient with your ladder strategy and wait for higher multiples before taking profits.'
+                });
+            }
+
+            recDiv.innerHTML = recommendations.map(rec => `
+                <div class="recommendation-card ${rec.type === 'success' ? '' : rec.type}">
+                    <div class="recommendation-title">${rec.title}</div>
+                    <div class="recommendation-text">${rec.text}</div>
+                </div>
+            `).join('');
+        }
+
+        // Calculate ladder from dashboard
+        window.calculateLadderFromDashboard = function(assetName) {
+            // Find asset index
+            const assetIndex = portfolio.findIndex(item => item.asset === assetName);
+            if (assetIndex === -1) return;
+
+            // Close dashboard
+            closeDashboard();
+
+            // Set the asset in the dropdown
+            document.getElementById('ladderAsset').value = assetIndex;
+
+            // Scroll to ladder calculator
+            document.querySelector('.card:has(#ladderAsset)').scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+            // Calculate ladder
+            setTimeout(() => {
+                calculateCustomLadder();
+                showNotification(`📊 Ladder calculated for ${assetName}`, 'success');
+            }, 500);
+        };
+
+        // Close dashboard
+        window.closeDashboard = function() {
+            const modal = document.getElementById('strategyModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        };
+
+        // Generate ladder strategy (main function)
+        window.generateLadderStrategy = function() {
+            const data = buildDashboardData();
+
+            // Render all sections
+            renderMetrics(data);
+            renderPriorityList(data);
+            renderRecommendations(data);
+            renderCharts(data);
+
+            // Show modal
+            const modal = document.getElementById('strategyModal');
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+
+            showNotification('🎯 Strategy dashboard generated!', 'success');
+        };
         
         // Initialize
         loadFromLocal();

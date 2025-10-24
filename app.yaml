@@ -1,0 +1,19 @@
+runtime: python312
+
+handlers:
+  # Serve the main HTML file
+  - url: /
+    static_files: index.html
+    upload: index.html
+
+  # Serve all static files
+  - url: /(.+)
+    static_files: \1
+    upload: (.+)
+
+# Configure caching
+default_expiration: "1h"
+
+# Environment variables (optional)
+env_variables:
+  APP_NAME: "Portfolio Ladder Out"
